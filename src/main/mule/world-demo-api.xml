@@ -12,7 +12,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</http:request-config>
 	<flow name="world-demo-apiFlow" doc:id="2a3b4c4f-5b28-4577-bac7-0eca82d94981" >
 		<http:listener doc:name="Listener" doc:id="763f6335-03f0-4237-9253-5947fdddc424" config-ref="HTTP_Listener_config" path="/{region}/{city}"/>
-		<logger level="INFO" doc:name="Logger" doc:id="fbc7e2f3-19ef-4340-97b2-d32d95f49cdf" message='#[%dw 2.0&#10;output application/json &#10;---&#10;{&#10;	"payload": payload default "",&#10;	"attributes": attributes default ""&#10;}]'/>
+		<logger level="INFO" doc:name="inputLogger" doc:id="fbc7e2f3-19ef-4340-97b2-d32d95f49cdf" message='#[%dw 2.0&#10;output application/json &#10;---&#10;{&#10;	"payload": payload default "",&#10;	"attributes": attributes default ""&#10;}]'/>
 		<http:request method="GET" doc:name="Request" doc:id="b3cfcd23-a82d-417d-bdc3-16d00d61c7d8" config-ref="HTTP_Request_configuration" path="/{region}/{city}">
 			<http:uri-params ><![CDATA[#[output application/java
 ---
